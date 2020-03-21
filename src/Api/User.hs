@@ -24,8 +24,11 @@ import           Models                      (User (User), runDb, userEmail,
 import qualified Models                      as Md
 import qualified System.Metrics.Counter      as Counter
 
+import           Otoke
+
+
 type UserAPI =
-         "users" :> Get '[JSON] [Entity User]
+         "users" :> Otoke :> Get '[JSON] [Entity User]
     :<|> "users" :> Capture "name" Text :> Get '[JSON] (Entity User)
     :<|> "users" :> ReqBody '[JSON] User :> Post '[JSON] Int64
     :<|> "metrics" :> Get '[JSON] (HashMap Text Int64)

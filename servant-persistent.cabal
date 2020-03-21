@@ -53,6 +53,7 @@ library
       , Api.User
       , Logger
       , DevelMain
+      , Otoke
     build-depends:
         base >= 4.9 && < 5.0
       , aeson
